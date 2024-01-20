@@ -19,12 +19,12 @@ export const SocketProvider = (props) => {
     }, []);
 
     socket?.on('connect_error', async (err) => {
-        console.log("Error establish socket", err)
+        console.log("Error establishing socket", err)
         await fetch('/api/socket')
     })
 
-    return (<SocketContext.Provider value={socket}>
-        {children}
-    </SocketContext.Provider>)
-}
+    return (
+        <SocketContext.Provider value={socket}>{children}</SocketContext.Provider>
+    );
+};
 
