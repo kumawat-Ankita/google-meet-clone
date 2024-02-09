@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react';
+import logo from '@/public/google-meet-logo.png';
 
 import styles from '@/styles/home.module.css'
 
@@ -61,11 +62,11 @@ export default function Home() {
   return (
 
     <div className='bg-white h-screen flex items-center '>
-      {/* <div className='flex'>
-        <img src='' alt='Logo' />
-      </div> */}
+      {/* <div className='flex'> */}
+      <img src='/google-meet-logo.png' alt='Logo' height={300} width={300} style={{ paddingBottom: '605px' }} className='pl-10' />
+      {/* </div> */}
       <div className={styles.videoContainer}>
-        <video ref={videoRef} autoPlay muted playsInline className='m-28 rounded-lg' />
+        <video ref={videoRef} autoPlay muted playsInline className='m-11 rounded-lg' />
       </div>
       <div className={styles.homeContainer}>
         <h1>Google Meet Clone</h1>
