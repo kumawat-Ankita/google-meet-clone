@@ -1,10 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useSocket } from "@/context/socket"
 import { useRouter } from "next/router"
+
+const { useState, useEffect, useRef } = require("react")
+
 const usePeer = () => {
-    const [peer, setPeer] = useState(null);
-    const [myId, setMyId] = useState('');
-    const isPeerSet = useRef(false);
+    const socket = useSocket()
     const roomId = useRouter().query.roomId;
+    const [peer, setPeer] = useState(null)
+    const [myId, setMyId] = useState('')
+    const isPeerSet = useRef(false)
 
     useEffect(() => {
         if (isPeerSet.current || !roomId || !socket) return;
@@ -21,9 +25,11 @@ const usePeer = () => {
             })
         })()
     }, [roomId, socket])
-    return (
+
+    return {
         peer,
         myId
-    )
+    }
 }
+
 export default usePeer;
