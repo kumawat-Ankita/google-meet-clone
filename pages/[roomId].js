@@ -139,7 +139,7 @@ const Room = () => {
 
     return (
 
-        <div>
+        <div >
             <div className={styles.activePlayerContainer}>
                 {playerHighlighted && (
                     <Player
