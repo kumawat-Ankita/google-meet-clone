@@ -60,34 +60,32 @@ export default function Home() {
   };
 
   return (
+    <div>
+      <img src='/google-meet-logo.png' alt='Logo' height={300} width={300} className='pl-10' />
+      <div className='bg-white  flex items-center ml-8 mr-8'>
+        <div className={styles.videoContainer}>
+          <video ref={videoRef} autoPlay muted playsInline width={800} className=' rounded-lg' />
+        </div>
+        <div className={styles.homeContainer}>
+          <h1>Google Meet Clone</h1>
 
-    <div className='bg-white h-screen flex items-center '>
-      {/* <div className='flex'> */}
-      <img src='/google-meet-logo.png' alt='Logo' height={300} width={300} style={{ paddingBottom: '605px' }} className='pl-10' />
-      {/* </div> */}
-      <div className={styles.videoContainer}>
-        <video ref={videoRef} autoPlay muted playsInline className='m-11 rounded-lg' />
-      </div>
-      <div className={styles.homeContainer}>
-        <h1>Google Meet Clone</h1>
+          <div className={styles.enterRoom}>
+            <input
+              placeholder='Enter Room ID'
+              value={roomId}
+              onChange={(e) => setRoomId(e?.target?.value)}
+            />
+            <span className='text-2xl font-sans font-medium'>Ready to join ?</span>
+            <p className=' font-medium m-5'>No  one else is here</p>
 
-        <div className={styles.enterRoom}>
-          <input
-            placeholder='Enter Room ID'
-            value={roomId}
-            onChange={(e) => setRoomId(e?.target?.value)}
-          />
-          <span className='text-2xl font-sans font-medium'>Ready to join ?</span>
-          <p className=' font-medium m-5'>No  one else is here</p>
+          </div>
+          <div>
+            <button onClick={joinRoom}>Join now</button>
+            <button onClick={createAndJoin}>Create a new room</button>
+          </div>
 
         </div>
-        <div>
-          <button onClick={joinRoom}>Join now</button>
-          <button onClick={createAndJoin}>Create a new room</button>
-        </div>
-
       </div>
     </div>
-
   );
 }

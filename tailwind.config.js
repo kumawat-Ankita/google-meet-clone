@@ -7,7 +7,18 @@ module.exports = {
   ],
   theme: {
     screens: {
-      xsm: '430px',
+      'xsm': '410px',
+      'xl': '1200px'
+      // maxWidth: {
+
+      //   'xl': '1200px'
+
+      // },
+      // minWidth: {
+
+      //   'xsm': '440px'
+
+      // }
     },
     extend: {
       colors: {
