@@ -28,4 +28,7 @@
   .separatorText {
     @apply my-3 text-xl;
   }
+  @media screen and (max-width: 360px) {
+    width: auto;
+  }
 }

@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'xsm': '410px',
+      'xsm': '300px',
       'xl': '1200px'
       // maxWidth: {
 

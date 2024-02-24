@@ -62,9 +62,9 @@ export default function Home() {
   return (
     <div>
       <img src='/google-meet-logo.png' alt='Logo' height={300} width={300} className='pl-10' />
-      <div className='bg-white  flex items-center ml-8 mr-8'>
+      <div className='bg-white  flex items-center  xsm:flex-col xsm:ml-8 xsm:mr-8 xl:flex-row xl:ml-20 xl:mr-20'>
         <div className={styles.videoContainer}>
-          <video ref={videoRef} autoPlay muted playsInline width={800} className=' rounded-lg' />
+          <video ref={videoRef} autoPlay muted playsInline width={650} className=' rounded-lg' />
         </div>
         <div className={styles.homeContainer}>
           <h1>Google Meet Clone</h1>
