@@ -1,27 +1,24 @@
 .copyContainer {
-    @apply flex flex-col absolute text-black border border-black rounded p-2;
-    left: 30px;
-    bottom: 100px;
-  
-    hr {
-      @apply my-1;
-    }
-    .copyHeading {
-      @apply text-base;
-    }
-  
-    .copyDescription {
-      @apply flex items-center text-sm;
-    }
+  @apply flex flex-col absolute text-black border border-gray-300 bg-gray-100 rounded p-2;
+  left: 30px;
+  bottom: 100px;
 
-    .copiedMessage {
-      @apply ml-2 text-white font-semibold duration-500 ease-in;
-    }
-  
-    .animateCopied {
-      @apply opacity-100;
-    }
-  
-    
+  hr {
+    @apply my-1;
   }
-  
+  .copyHeading {
+    @apply text-base;
+  }
+
+  .copyDescription {
+    @apply flex items-center text-sm;
+  }
+
+  .copiedMessage {
+    @apply ml-2 text-green-500 font-semibold duration-500 ease-in;
+  }
+
+  .animateCopied {
+    @apply opacity-100;
+  }
+}

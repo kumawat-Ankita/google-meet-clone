@@ -62,20 +62,20 @@ export default function Home() {
   return (
     <div>
       <img src='/google-meet-logo.png' alt='Logo' height={200} width={200} className=' m-4' />
-      <div className='bg-white  flex items-center xl:pt-12 xl:p-36 sm:flex-col xsm:flex-col xsm:ml-8 xsm:mr-8 xl:flex-row xl:ml-20 xl:mr-20'>
+      <div className='bg-white  flex items-center xl:pt-12 xl:p-28 sm:flex-col xsm:flex-col xsm:ml-8 xsm:mr-8 xl:flex-row xl:ml-20 xl:mr-20'>
         <div className={styles.videoContainer}>
           <video ref={videoRef} autoPlay muted playsInline width={650} className=' rounded-lg' />
         </div>
         <div className={styles.homeContainer}>
           {/* <h1>Google Meet Clone</h1> */}
-
+          <span className='text-3xl font-sans m-6'>Ready to join ?</span>
           <div className={styles.enterRoom}>
             <input
               placeholder='Enter Room ID'
               value={roomId}
               onChange={(e) => setRoomId(e?.target?.value)}
             />
-            <span className='text-2xl font-sans font-medium'>Ready to join ?</span>
+
             <p className=' font-medium m-5'>No  one else is here</p>
 
           </div>
