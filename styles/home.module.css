@@ -15,6 +15,10 @@
 
   video {
     @apply w-full h-full object-cover rounded-lg;
+    /* @media screen and (min-width: 360px) and (max-width: 700px) {
+      width: 100px;
+      height: 100px;
+    } */
   }
 
   .enterRoom {
