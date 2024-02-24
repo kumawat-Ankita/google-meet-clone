@@ -28,7 +28,9 @@
   .separatorText {
     @apply my-3 text-xl;
   }
-  @media screen and (max-width: 360px) {
+  @media screen and (min-width: 360px) and (max-width: 950px) {
     width: auto;
+    display: flex;
+    flex-direction: column;
   }
 }
