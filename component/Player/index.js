@@ -1,6 +1,6 @@
 import ReactPlayer from "react-player";
 import cx from "classnames";
-import { Mic, MicOff, UserSquare2 } from "lucide-react";
+import { Mic, MicOff, SquareUserRound } from "lucide-react";
 
 import styles from "@/component/Player/index.module.css";
 
@@ -23,7 +23,8 @@ const Player = (props) => {
                     height="100%"
                 />
             ) : (
-                <UserSquare2 className={styles.user} size={isActive ? 400 : 150} />
+                // <UserSquare2 className={styles.user} size={isActive ? 400 : 150} />
+                <SquareUserRound size={isActive ? 400 : 150} />
             )}
 
             {!isActive ? (

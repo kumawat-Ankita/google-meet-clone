@@ -60,9 +60,9 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className='bg-white h-auto'>
       <img src='/google-meet-logo.png' alt='Logo' height={200} width={200} className=' m-4' />
-      <div className='bg-white  flex items-center xl:pt-12 xl:p-28 sm:flex-col xsm:flex-col xsm:ml-8 xsm:mr-8 xl:flex-row xl:ml-20 xl:mr-20'>
+      <div className=' flex items-center xl:pt-12 xl:p-28 sm:flex-col xsm:flex-col xsm:ml-8 xsm:mr-8 xl:flex-row xl:ml-20 xl:mr-20'>
         <div className={styles.videoContainer}>
           <video ref={videoRef} autoPlay muted playsInline width={650} className=' rounded-lg' />
         </div>
