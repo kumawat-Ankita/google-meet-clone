@@ -12,6 +12,12 @@ export default function Home() {
   const [isMicrophoneMuted, setIsMicrophoneMuted] = useState(false);
   const [isVideoMuted, setIsVideoMuted] = useState(false);
   const videoRef = useRef(null);
+  // localStorage.setItem('token', null);
+  let Token;
+  if (typeof window !== 'undefined') {
+    Token = localStorage.getItem('token');
+
+  }
 
   useEffect(() => {
     startCamera();
@@ -62,9 +68,13 @@ export default function Home() {
   };
 
   const createAndJoin = () => {
-    console.log('create a room');
-    const roomId = uuidv4();
-    router.push(`/${roomId}`);
+    if (localStorage.getItem('token') !== null) {
+      console.log('create a room');
+      const roomId = uuidv4();
+      router.push(`/${roomId}`);
+    } else {
+      router.push('./login');
+    }
   };
 
   const joinRoom = () => {
@@ -79,13 +89,25 @@ export default function Home() {
     router.push('./login');
   };
 
+  const removeToken = () => {
+    localStorage.removeItem('token');
+    window.location.reload(false);
+    Token = null;
+  }
+
+
   return (
     <div className='bg-white h-auto'>
       <div className='flex justify-between'>
         <img src='/google-meet-logo.png' alt='Logo' height={200} width={200} className='m-4' />
-        <button onClick={navigateToLogin} className='text-cyan-500 pr-10'>
-          Login
-        </button>
+        {Token !== null ?
+          (
+            <button onClick={removeToken} className='text-cyan-500 pr-10'>
+              Logout
+            </button>) : (<button onClick={navigateToLogin} className='text-cyan-500 pr-10'>
+              Login
+            </button>)
+        }
       </div>
       <div className='flex items-center xl:p-20  sm:flex-col xsm:flex-col xsm:ml-8 xsm:mr-8 xl:flex-row xl:ml-20 xl:mr-20'>
         <div className={`${styles.videoContainer} relative`}>
@@ -121,7 +143,7 @@ export default function Home() {
               )}
             </button>
           </div>
-          <video ref={videoRef} autoPlay muted style={{ width: '750px', height: '440px' }} className='rounded-lg object-cover' />
+          <video ref={videoRef} autoPlay muted style={{ width: '750px', height: '440px' }} className='rounded-lg object-cover xsm:w-auto xsm:h-auto' />
           {isVideoMuted && (
             <p className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white'>
               Camera is Off
@@ -132,11 +154,19 @@ export default function Home() {
         <div className={styles.homeContainer}>
           <span className='text-3xl font-sans m-6'>Ready to join ?</span>
           <div className={styles.enterRoom}>
-            <input
-              placeholder='Enter Room ID'
-              value={roomId}
-              onChange={e => setRoomId(e?.target?.value)}
-            />
+            {Token ? (
+              <input
+                placeholder='Enter Room ID'
+                value={roomId}
+                onChange={e => setRoomId(e.target.value)}
+              />
+            ) : (
+              // Redirect to login page
+              <div>
+                <p>Please log in to continue</p>
+                <button onClick={() => router.push('/login')} style={{ marginLeft: '40px' }}>Login</button>
+              </div>
+            )}
             <p className='font-medium m-5'>No one else is here</p>
           </div>
           <div>
