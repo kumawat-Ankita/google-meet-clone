@@ -51,7 +51,7 @@ const SignUp = (props) => {
     }
 
     return (
-        <div className="flex justify-center items-center xsm:p-11 p-28 text-black">
+        <div className="flex justify-center items-center xsm:p- p-28 text-black">
             <div className="w-full  max-w-md">
                 <div className="bg-white shadow-md rounded px-8 py-6">
                     {isLoggedIn ? (
@@ -60,7 +60,10 @@ const SignUp = (props) => {
                         </div>
                     ) : (
                         <div>
-                            <h2 className="text-2xl mb-4">Sign Up</h2>
+                            <div className="flex justify-center items-center flex-col">
+                                <img src="/google.png" className="h-16 " />
+                                <h2 className="text-2xl mb-4">SignUp</h2>
+                            </div>
                             <form className="register-form" onSubmit={handleSubmit}>
                                 <div className="mb-4">
                                     <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Full name</label>

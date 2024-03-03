@@ -65,14 +65,17 @@ const Login = (props) => {
         <div className="flex justify-center items-center xsm:p-14  p-40 text-black">
             <div className="w-full xsm:w-auto xl:w-full max-w-md p-8 bg-white rounded-lg shadow-md">
                 <div className="relative">
-                    <button
+                    {/* <button
                         className="absolute top-0 right-0 mr-4 ml-4 text-blue-500"
                         onClick={props.onClose}
                     >
                         &#10006;
-                    </button>
+                    </button> */}
                 </div>
-                <h2 className="text-2xl mb-4">Login</h2>
+                <div className="flex justify-center items-center flex-col">
+                    <img src="/google.png" className="h-16 " />
+                    <h2 className="text-2xl mb-4">Login</h2>
+                </div>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="email" className="block mb-1">Email</label>
