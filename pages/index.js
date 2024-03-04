@@ -91,7 +91,8 @@ export default function Home() {
 
   const removeToken = () => {
     localStorage.removeItem('token');
-    window.location.reload(false);
+    // window.location.reload(false);
+    router.push('./login');
     Token = null;
   }
 
@@ -164,7 +165,7 @@ export default function Home() {
               // Redirect to login page
               <div>
                 <p>Please log in to continue</p>
-                <button onClick={() => router.push('/login')} style={{ marginLeft: '40px' }}>Login</button>
+
               </div>
             )}
             <p className='font-medium m-5'>No one else is here</p>

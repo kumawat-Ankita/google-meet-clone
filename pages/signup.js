@@ -34,14 +34,15 @@ const SignUp = (props) => {
             setIsLoading(false);
 
             if (json.status === 'success') {
+                router.push('./');
                 setIsLoggedIn(true);
                 setSignUpSuccess(true);
                 setName('');
                 setEmail('');
                 setPass('');
-                setTimeout(() => {
-                    props.onClose();
-                }, 1000);
+                // setTimeout(() => {
+                //     props.onClose();
+                // }, 1000);
             }
         }
     }
