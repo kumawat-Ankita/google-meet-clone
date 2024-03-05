@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { FORM_TYPE } from "./constant";
 import { useRouter } from 'next/navigation';
 
 
-const SignUp = (props) => {
+const SignUp = () => {
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
@@ -40,9 +39,7 @@ const SignUp = (props) => {
                 setName('');
                 setEmail('');
                 setPass('');
-                // setTimeout(() => {
-                //     props.onClose();
-                // }, 1000);
+
             }
         }
     }

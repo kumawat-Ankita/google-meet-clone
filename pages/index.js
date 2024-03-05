@@ -4,6 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import styles from '@/styles/home.module.css';
+import dynamic from 'next/dynamic';
+const InputField = dynamic(() => import('@/component/InputField'), {
+  ssr: false,
+})
 
 export default function Home() {
   const router = useRouter();
@@ -12,7 +16,6 @@ export default function Home() {
   const [isMicrophoneMuted, setIsMicrophoneMuted] = useState(false);
   const [isVideoMuted, setIsVideoMuted] = useState(false);
   const videoRef = useRef(null);
-  // localStorage.setItem('token', null);
   let Token;
   if (typeof window !== 'undefined') {
     Token = localStorage.getItem('token');
@@ -91,7 +94,6 @@ export default function Home() {
 
   const removeToken = () => {
     localStorage.removeItem('token');
-    // window.location.reload(false);
     router.push('./login');
     Token = null;
   }
@@ -155,20 +157,9 @@ export default function Home() {
         <div className={styles.homeContainer}>
           <span className='text-3xl font-sans m-6'>Ready to join ?</span>
           <div className={styles.enterRoom}>
-            {Token ? (
-              <input
-                placeholder='Enter Room ID'
-                value={roomId}
-                onChange={e => setRoomId(e.target.value)}
-              />
-            ) : (
-              // Redirect to login page
-              <div>
-                <p>Please log in to continue</p>
-
-              </div>
-            )}
+            <InputField Token={Token} roomId={roomId} />
             <p className='font-medium m-5'>No one else is here</p>
+
           </div>
           <div>
             <button onClick={joinRoom}>Join now</button>

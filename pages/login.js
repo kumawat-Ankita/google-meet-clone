@@ -1,20 +1,19 @@
 import React, { useState } from "react";
-import { FORM_TYPE } from "./constant";
 import { useRouter } from 'next/navigation';
 
 
-const Login = (props) => {
+const Login = () => {
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(false); // Added state for error
+    const [error, setError] = useState(false);
     const [loginSuccess, setLoginSuccess] = useState(false);
     const [loginError, setLoginError] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(false); // Reset error state
+        setError(false);
 
         if (email.length < 1 || pass.length < 1) {
             setError(true);
@@ -39,11 +38,7 @@ const Login = (props) => {
                     router.push('./')
                     setLoginSuccess(true);
                     setLoginError(false);
-                    // setTimeout(() => {
-                    //     setLoginSuccess(false);
-                    //     // props.onClose();
-                    // }, 1000);
-                    // window.location.reload(false);
+
                 } else {
                     setLoginError(true);
                     setLoginSuccess(false);
@@ -65,12 +60,6 @@ const Login = (props) => {
         <div className="flex justify-center items-center xsm:p-14  p-40 text-black">
             <div className="w-full xsm:w-auto xl:w-full max-w-md p-8 bg-white rounded-lg shadow-md">
                 <div className="relative">
-                    {/* <button
-                        className="absolute top-0 right-0 mr-4 ml-4 text-blue-500"
-                        onClick={props.onClose}
-                    >
-                        &#10006;
-                    </button> */}
                 </div>
                 <div className="flex justify-center items-center flex-col">
                     <img src="/google.png" className="h-16 " />
