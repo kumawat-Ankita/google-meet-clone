@@ -157,7 +157,7 @@ export default function Home() {
         <div className={styles.homeContainer}>
           <span className='text-3xl font-sans m-6'>Ready to join ?</span>
           <div className={styles.enterRoom}>
-            <InputField Token={Token} roomId={roomId} />
+            <InputField Token={Token} roomId={roomId} setRoomId={setRoomId} />
             <p className='font-medium m-5'>No one else is here</p>
 
           </div>
