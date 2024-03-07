@@ -112,7 +112,7 @@ export default function Home() {
             </button>)
         }
       </div>
-      <div className='flex items-center xl:p-20  sm:flex-col xsm:flex-col xsm:ml-8 xsm:mr-8 xl:flex-row xl:ml-20 xl:mr-20'>
+      <div className='flex items-center xl:p-20 gap-20 sm:flex-col xsm:flex-col xsm:ml-8 xsm:mr-8 xl:flex-row xl:ml-20 xl:mr-20'>
         <div className={`${styles.videoContainer} relative`}>
           <div className=' absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-6 z-10'>
             <button onClick={toggleMicrophone}
